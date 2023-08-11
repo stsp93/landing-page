@@ -1,8 +1,18 @@
 html {
-    scroll-behavior: smooth;
-  }
+  scroll-behavior: smooth;
+}
+
+nav {
+    opacity: 0.9;
+}
 
 header {
-    background-image: url('./images/hero.jpg');
-    height: 100vh;
+  background-image: url("./images/hero.jpg");
+  height: 100vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collapsing {
+    transition: all 0.3s;
+  }
 }
