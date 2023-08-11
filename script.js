@@ -1,12 +1,27 @@
 const controller = new ScrollMagic.Controller();
 
-const scene = new ScrollMagic.Scene({
-  triggerElement: "#navigation",
+
+// nav scene
+const navScene = new ScrollMagic.Scene({
+  triggerElement: "#landingBtn",
   triggerHook: 0
-}).setPin('#navigation', { pushFollowers: false })
-  .addTo(controller);
+}).addTo(controller);
 
+navScene.on("enter", function (event) {
+  $('.navigation').css({
+    position: 'fixed',
+    top: 0,
+    opacity: 0.9,
+  })
+});
 
-  $('.nav-link').on('click',function() {
-    $('.navbar-collapse').collapse('hide');
-  });
+navScene.on("leave", function (event) {
+  $('.navigation').css({
+    position: 'relative',
+  })
+});
+
+// collapse nav on link click
+$('.nav-link, .navbar-brand').on('click', function () {
+  $('.navbar-collapse').collapse('hide');
+});
