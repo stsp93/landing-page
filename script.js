@@ -1,27 +1,18 @@
+import { navScene } from "./src/navScene.js";
+
 const controller = new ScrollMagic.Controller();
 
+navScene(controller);
 
-// nav scene
-const navScene = new ScrollMagic.Scene({
-  triggerElement: "#landingBtn",
-  triggerHook: 0
-}).addTo(controller);
 
-navScene.on("enter", function (event) {
-  $('.navigation').css({
-    position: 'fixed',
-    top: 0,
-    opacity: 0.9,
-  })
-});
+$('section').each(function() {
+  const scene = new ScrollMagic.Scene({
+    triggerElement: this,
+  }).addIndicators({
+    colorStart:'red',
+    colorEnd:'black',
+    colorTrigger: 'blue'
+  }).setClassToggle(this,'fade-in')
+  .addTo(controller)
 
-navScene.on("leave", function (event) {
-  $('.navigation').css({
-    position: 'relative',
-  })
-});
-
-// collapse nav on link click
-$('.nav-link, .navbar-brand').on('click', function () {
-  $('.navbar-collapse').collapse('hide');
-});
+})
