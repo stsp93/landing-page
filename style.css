@@ -4,6 +4,7 @@ html {
 
 .navigation {
   position: fixed;
+  background-color: #fff;
   width: 100%;
   z-index: 10;
 }
@@ -19,17 +20,19 @@ header {
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("./images/hero.jpg");
   background-size: cover;
   background-position: center;
+  background-position-x: left;
 }
 header img {
   position: absolute;
   top: -10%;
   left: 10%;
   filter: blur(0.2px);
-  max-width: 30rem;
+  width: 100%;
+  max-width: 35rem;
   height: 140%;
 }
 header div {
-  padding-top: 5rem;
+  padding-top: 25rem;
   position: relative;
   z-index: 2;
 }
