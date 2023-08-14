@@ -7,10 +7,9 @@ const navScene = new ScrollMagic.Scene({
   
   navScene.on("enter", function (event) {
     $('.navigation').css({
-      position: 'fixed',
       'background-color': generateRGB(),
       top: 0,
-      opacity: 0.9,
+      opacity: 0.8,
     })
   });
   
@@ -24,7 +23,7 @@ const navScene = new ScrollMagic.Scene({
   
   navScene.on("leave", function (event) {
     $('.navigation').css({
-      position: 'relative',
+      opacity: 1,
     })
   });
   
