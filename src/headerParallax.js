@@ -3,6 +3,7 @@ export function heroParallax(controller) {
         triggerElement: '#header',
         triggerHook: 0,
         duration:'50%',
+        reverse:false,
       }).setTween(TweenMax.to('#header img', 0.1, { x:"50%",y:'10%',scale:0.3, ease:Power0.easeInOut}))
         .addTo(controller);
       
