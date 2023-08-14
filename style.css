@@ -24,12 +24,19 @@ header {
 }
 header img {
   position: absolute;
+}
+header .landing {
+  width: 100%;
   top: -10%;
   left: 10%;
   filter: blur(0.2px);
-  width: 100%;
   max-width: 35rem;
   height: 140%;
+}
+header .departing {
+  width: 80%;
+  bottom: 50%;
+  right: 100%;
 }
 header div {
   padding-top: 25rem;

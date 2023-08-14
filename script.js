@@ -41,10 +41,6 @@ const arrivalScene = new ScrollMagic.Scene({
   triggerElement: '#section1',
   duration: '60%',
   offset: -100,
-}).addIndicators({
-  colorStart: 'blue',
-  colorEnd: 'red',
-  colorStart: 'yellow',
 }).on('enter', function (e) {
   const spanEl = $('#section1 span');
   

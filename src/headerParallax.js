@@ -1,12 +1,27 @@
 export function heroParallax(controller) {
-    const parallaxPlane = new ScrollMagic.Scene({
+    const landingScene = new ScrollMagic.Scene({
         triggerElement: '#header',
         triggerHook: 0,
         duration:'50%',
         reverse:false,
-      }).setTween(TweenMax.to('#header img', 0.1, { x:"50%",y:'10%',scale:0.3, ease:Power0.easeInOut}))
+      })
+      .setTween(TweenMax.to('#header .landing', 0.1, { x:"100%",y:'10%',scale:0.3, ease:Power0.easeInOut}))
+      .on('end', function() {
+        const departingScene = new ScrollMagic.Scene({
+          triggerElement: '#header',
+          triggerHook: 0,
+          duration:'50%',
+          reverse:true,
+        }).addIndicators({
+          colorStart: 'blue',
+          colorEnd: 'red',
+          colorStart: 'yellow',
+        })
+        .setTween(TweenMax.from('#header .departing', 0.1, { x:"200%",y:'100%',scale:0.1, ease:Power0.easeNone}).reverse(true))
         .addTo(controller);
-      
+      })
+      .addTo(controller);
+
         const parallaxText = new ScrollMagic.Scene({
         triggerElement: '#header',
         triggerHook: 0,
