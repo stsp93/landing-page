@@ -12,33 +12,38 @@ const cityTimezones = {
     'MONTEVIDEO': 'America/Montevideo',
     'PHILADELPHIA': 'America/New_York',
     'JOHANNESBURG': 'Africa/Johannesburg'
-  };
+};
 
 export function clocksScene(controller) {
-    const clockScene = new ScrollMagic.Scene({
-        triggerElement: '#section2',
-        duration: "200%",
-    }).setTween(TweenMax.to('.clock', 0.1, { rotationX: 720, rotationY: -360, ease: Power0.easeNone })).addIndicators({
-        colorStart: 'blue',
-        colorEnd: 'red',
-        colorStart: 'yellow',
-    }).addTo(controller)
+    const animations = [
+        { rotationX: -350, rotationY: 10, ease: Power0.easeNone },
+        { rotationX: -700, rotationY: 10, scale: 0.5, ease: Power0.easeNone },
+        { rotationX: -10, rotationY: 700, scale: 1.4, ease: Power4.easeIn },
+    ]
+    $('.clock').each(function(i){
+        const clockScene = new ScrollMagic.Scene({
+            triggerElement: '#section2',
+            duration: "70%",
+        }).setTween(TweenMax.to(`.clock${i+1}`, 0.1,animations[i] ))
+            .addTo(controller)
+    }) 
+    
 }
 
 // set clock times
 const clockCities = [currentCity, 'NEW YORK', 'LONDON']
 $('.carousel-item').each((i, el) => {
-        const { hours, minutes } = getCityTime(cityTimezones[clockCities[i]]);
-    
-        $(el).find('#time').text(`${hours}:${minutes}`);
-        $(el).find('#city').text(clockCities[i]);
-        $(el).find('.hoursArrow').css({
-            transform: `translate(-50%, -100%) rotateZ(${calculateRotationDeg({hours, minutes}).hoursDeg}deg)`
-        })
+    const { hours, minutes } = getCityTime(cityTimezones[clockCities[i]]);
 
-        $(el).find('.minutesArrow').css({
-            transform: `translate(-50%, -100%) rotateZ(${calculateRotationDeg({hours, minutes}).minutesDeg}deg)`
-        })
+    $(el).find('#time').text(`${hours}:${minutes}`);
+    $(el).find('#city').text(clockCities[i]);
+    $(el).find('.hoursArrow').css({
+        transform: `translate(-50%, -100%) rotateZ(${calculateRotationDeg({ hours, minutes }).hoursDeg}deg)`
+    })
+
+    $(el).find('.minutesArrow').css({
+        transform: `translate(-50%, -100%) rotateZ(${calculateRotationDeg({ hours, minutes }).minutesDeg}deg)`
+    })
 })
 
 

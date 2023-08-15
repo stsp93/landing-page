@@ -1,0 +1,40 @@
+.navigation {
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  z-index: 10;
+}
+.navigation nav {
+  padding: 0.5rem 1rem;
+  z-index: 1;
+}
+
+header {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url("./images/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  background-position-x: left;
+}
+header img {
+  position: absolute;
+}
+header .landing {
+  width: 100%;
+  height: 100%;
+  bottom: 10%;
+  left: 10%;
+  max-width: 35rem;
+}
+header .departing {
+  width: 80%;
+  bottom: 50%;
+  right: 100%;
+}
+header div {
+  padding-top: 25rem;
+  position: relative;
+  z-index: 2;
+}/*# sourceMappingURL=header.css.map */
