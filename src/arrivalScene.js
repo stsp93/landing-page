@@ -14,7 +14,8 @@ let intervalId;
 export function arrivalScene(controller) {
     const arrivalScene = new ScrollMagic.Scene({
         triggerElement: '#section1',
-        duration: '100%',
+        offset: 200,
+        duration: 1000,
     }).on('enter', function (e) {
         const spanEl = $('#section1 span');
 
@@ -24,7 +25,7 @@ export function arrivalScene(controller) {
             if (index < currentCity.length + 5) index++;
             spanEl.html(generateCityChars(index));
         }, 200)
-    }).on('leave', function () {
+    }).on('end', function () {
         clearInterval(intervalId);
         $('#section1 span').html(currentCity.split('').map(c => `<strong>${c}</strong>`));
     })

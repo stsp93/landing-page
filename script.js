@@ -14,6 +14,7 @@ clocksScene(controller);
 $('section').each(function () {
   const scene = new ScrollMagic.Scene({
     triggerElement: this,
+    reverse:false,
   }).setClassToggle(this, 'fade-in')
     .addTo(controller)
 });

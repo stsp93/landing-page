@@ -16,14 +16,15 @@ const cityTimezones = {
 
 export function clocksScene(controller) {
     const animations = [
-        { rotationX: -350, rotationY: 10, ease: Power0.easeNone },
-        { rotationX: -700, rotationY: 10, scale: 0.5, ease: Power0.easeNone },
-        { rotationX: -10, rotationY: 700, scale: 1.4, ease: Power4.easeIn },
+        { rotationX: -356, rotationY: 8, ease: Power2.easeInOut  },
+        { rotationX: 5, rotationY: 358, scale: 0.5, ease: Power3.easeOut },
+        { rotationX: -8, rotationY: 20, rotation:360, scale: 1.4, ease: Power4.easeIn },
     ]
     $('.clock').each(function(i){
         const clockScene = new ScrollMagic.Scene({
             triggerElement: '#section2',
-            duration: "70%",
+            offset:100,
+            duration: 500,
         }).setTween(TweenMax.to(`.clock${i+1}`, 0.1,animations[i] ))
             .addTo(controller)
     }) 
