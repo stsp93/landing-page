@@ -1,3 +1,4 @@
+import { arrivalScene } from "./src/arrivalScene.js";
 import { heroParallax } from "./src/headerParallax.js";
 import { navScene } from "./src/navScene.js";
 
@@ -5,6 +6,7 @@ const controller = new ScrollMagic.Controller();
 
 navScene(controller);
 heroParallax(controller);
+arrivalScene(controller);
 
 // section reveal
 $('section').each(function () {
@@ -16,64 +18,34 @@ $('section').each(function () {
 
 
 // set local time
-$('#time').text(function () {
-  const now = new Date();
-  const hours = now.getHours().toString().padStart(2, '0');
-  const minutes = now.getMinutes().toString().padStart(2, '0');
-  return `${hours}:${minutes}`;
-});
 
+const now = new Date();
+const hours = now.getHours().toString().padStart(2, '0');
+const minutes = now.getMinutes().toString().padStart(2, '0');
 
-// arrival scene
+$('#time').text(`${hours}:${minutes}`);
 
-const cities = ['Pittsburgh',
-  'Alexandria',
-  'Birmingham',
-  'Sacramento',
-  'Vancouver',
-  'Montevideo',
-  'Philadelphia',
-  'Johannesburg'];
-const currentCity = cities[Math.floor(Math.random() * cities.length)].toUpperCase();
-let intervalId;
-
-const arrivalScene = new ScrollMagic.Scene({
-  triggerElement: '#section1',
-  duration: '60%',
-  offset: -100,
-}).on('enter', function (e) {
-  const spanEl = $('#section1 span');
-  
-  if(spanEl.text() === currentCity) return;
-  let index = 0;
-  intervalId = setInterval(function () {
-    if(index < currentCity.length + 3) index++;
-    spanEl.html(generateCityChars(index));
-  }, 250)
-}).on('leave', function () {
-  clearInterval(intervalId);
-  $('#section1 span').html(currentCity.split('').map(c => `<strong>${c}</strong>`));
+console.log((hours/12)*360);
+const minutesDeg = (minutes/60) * 360;
+const hoursDeg = (hours/12)*360 + minutesDeg/12 ;
+$('.hoursArrow').css({
+  transform:`translate(-50%, -100%) rotateZ(${hoursDeg}deg)`
 })
-.addTo(controller);
+$('.minutesArrow').css({
+  transform:`translate(-50%, -100%) rotateZ(${minutesDeg}deg)`
+})
 
-function generateCityChars(index) {
-  let cityString = '';
-  const uppercaseAlphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const clockScene = new ScrollMagic.Scene({
+  triggerElement: '#section2',
+  duration: "30%",
+}).setTween(TweenMax.to('.clock',0.1, {rotationX:720, ease: Power0.easeNone})).addIndicators({
+  colorStart: 'blue',
+  colorEnd: 'red',
+  colorStart: 'yellow',
+}).addTo(controller)
+  
 
-  for (let i = 0; i < currentCity.length; i++) {
-    if(i > index ) {
-      cityString += `<strong>&nbsp;</strong>`;
-    } else if(i <= index && i >= index-3) {
-      const randomIndex = Math.floor(Math.random() * currentCity.length);
-      cityString += `<strong>${uppercaseAlphabet[randomIndex]}</strong>`;
-    }
-    else {
-      cityString += `<strong>${currentCity[i]}</strong>`;
-    }
-  }
 
-  return cityString;
-}
 
 
 

@@ -27,11 +27,10 @@ header img {
 }
 header .landing {
   width: 100%;
-  top: -10%;
+  height: 100%;
+  bottom: 20%;
   left: 10%;
-  filter: blur(0.2px);
   max-width: 35rem;
-  height: 140%;
 }
 header .departing {
   width: 80%;
@@ -71,6 +70,77 @@ section {
 #section2 {
   background-color: #8ec5fc;
   background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+}
+
+.clock {
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1rem solid #000;
+  background-color: #fff;
+  transform-style: preserve-3d;
+}
+.clock .dash {
+  position: absolute;
+  width: 2%;
+  height: 20%;
+  background-color: #000;
+}
+.clock .dash:nth-of-type(1) {
+  left: 50%;
+  top: 2%;
+}
+.clock .dash:nth-of-type(2) {
+  left: 100%;
+  top: 50%;
+  transform: rotateZ(90deg) translate(-450%, 70%);
+}
+.clock .dash:nth-of-type(3) {
+  left: 50%;
+  bottom: 2%;
+}
+.clock .dash:nth-of-type(4) {
+  left: 0;
+  top: 50%;
+  transform: rotateZ(90deg) translate(-450%, -70%);
+}
+.clock .arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-clip-path: polygon(15% 25%, 50% 0, 85% 25%, 70% 25%, 70% 100%, 30% 100%, 30% 25%);
+          clip-path: polygon(15% 25%, 50% 0, 85% 25%, 70% 25%, 70% 100%, 30% 100%, 30% 25%);
+  width: 5%;
+  height: 50%;
+  background-color: #000;
+  transform-origin: bottom;
+  transform: translate(-50%, -100%);
+}
+.clock .hoursArrow {
+  height: 30%;
+  width: 10%;
+}
+.clock .arrowCircle {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  z-index: 10;
+}
+.clock .clockBack {
+  position: absolute;
+  background-color: red;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(1rem);
+  z-index: -1;
 }
 
 @media (prefers-reduced-motion: reduce) {
