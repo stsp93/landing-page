@@ -6,7 +6,9 @@ const cities = ['Pittsburgh',
     'Montevideo',
     'Philadelphia',
     'Johannesburg'];
-const currentCity = cities[Math.floor(Math.random() * cities.length)].toUpperCase();
+
+
+export const currentCity = cities[Math.floor(Math.random() * cities.length)].toUpperCase();
 let intervalId;
 
 export function arrivalScene(controller) {
@@ -14,18 +16,18 @@ export function arrivalScene(controller) {
         triggerElement: '#section1',
         duration: '100%',
     }).on('enter', function (e) {
-            const spanEl = $('#section1 span');
+        const spanEl = $('#section1 span');
 
-            if (spanEl.text() === currentCity) return;
-            let index = 0;
-            intervalId = setInterval(function () {
-                if (index < currentCity.length + 5) index++;
-                spanEl.html(generateCityChars(index));
-            }, 200)
-        }).on('leave', function () {
-            clearInterval(intervalId);
-            $('#section1 span').html(currentCity.split('').map(c => `<strong>${c}</strong>`));
-        })
+        if (spanEl.text() === currentCity) return;
+        let index = 0;
+        intervalId = setInterval(function () {
+            if (index < currentCity.length + 5) index++;
+            spanEl.html(generateCityChars(index));
+        }, 200)
+    }).on('leave', function () {
+        clearInterval(intervalId);
+        $('#section1 span').html(currentCity.split('').map(c => `<strong>${c}</strong>`));
+    })
         .addTo(controller);
 }
 

@@ -101,21 +101,69 @@
     <section id="section2" >
       <div class="container">
         <h2>Time</h2>
-        <p>The local time is <strong id="time"></strong></p>
-        <div class="clock">
-          <div class="dash"></div>
-          <div class="dash"></div>
-          <div class="dash"></div>
-          <div class="dash"></div>
-          <div class="arrow hoursArrow"></div>
-          <div class="arrow minutesArrow"></div>
-          <div class="arrowCircle"></div>
-          <div class="side clockBack"></div>
-          <div class="side clockLeftSide"></div>
-          <div class="side clockRightSide"></div>
-          <div class="side clockTopSide"></div>
-          <div class="side clockBottomSide"></div>
+      </div>
+      <div id="carousel" class="carousel slide carousel-fade text-center" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <p>The time in <strong id="city"></strong> is <strong id="time"></strong></p>
+            <div class="clock firstClock">
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="arrow hoursArrow"></div>
+              <div class="arrow minutesArrow"></div>
+              <div class="arrowCircle"></div>
+              <div class="side clockBack"></div>
+              <div class="side clockLeftSide"></div>
+              <div class="side clockRightSide"></div>
+              <div class="side clockTopSide"></div>
+              <div class="side clockBottomSide"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <p>The time in <strong id="city"></strong> is <strong id="time"></strong></p>
+            <div class="clock secondClock">
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="arrow hoursArrow"></div>
+              <div class="arrow minutesArrow"></div>
+              <div class="arrowCircle"></div>
+              <div class="side clockBack"></div>
+              <div class="side clockLeftSide"></div>
+              <div class="side clockRightSide"></div>
+              <div class="side clockTopSide"></div>
+              <div class="side clockBottomSide"></div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <p>The time in <strong id="city"></strong> is <strong id="time"></strong></p>
+            <div class="clock thirdClock">
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="dash"></div>
+              <div class="arrow hoursArrow"></div>
+              <div class="arrow minutesArrow"></div>
+              <div class="arrowCircle"></div>
+              <div class="side clockBack"></div>
+              <div class="side clockLeftSide"></div>
+              <div class="side clockRightSide"></div>
+              <div class="side clockTopSide"></div>
+              <div class="side clockBottomSide"></div>
+            </div>
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
     </section>
 
