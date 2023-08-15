@@ -25,4 +25,5 @@ export function heroParallax(controller) {
     duration: '20%',
   }).setTween(TweenMax.to('#header div', 0.1, { y: "-100%", ease: Power0.easeNone }))
     .addTo(controller);
+    
 }

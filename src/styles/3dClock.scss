@@ -8,17 +8,28 @@ $blue: #a598ff;
 $green : #b292bb;
 $lime: #d895a2;
 
+.clock-wrapper {
+  margin-bottom: 5rem;
+
+  .clock4 {
+    z-index: 10;
+  }
+}
+
 .clock {
     position: relative;
-    width: 20rem;
-    height: 20rem;
+    width: 15rem;
+    height: 15rem;
     margin: 0 auto;
     border-radius: 1rem;
-    
+    border: 1px solid #000;
     
     background-color: #fff;
-  
     transform-style: preserve-3d;
+    p {
+      position: absolute;
+      bottom: 100%;
+    }
   
     .dash{
       position: absolute;
@@ -85,6 +96,7 @@ $lime: #d895a2;
     .side {
       position: absolute;
       border-radius: 1rem;
+      border: 1px solid #000;
   
       width: 100%;
       height: $depth;
@@ -127,12 +139,4 @@ $lime: #d895a2;
       
       transform: rotateY(90deg) translateZ(-$halfDepth) translateX(50%);
     }
-  }
-  
-  .carousel-inner {
-    overflow: unset;
-  }
-
-  .btn {
-    box-shadow: 0 2px 10px 2px hsla(0, 0%, 0%, 0.2);
   }

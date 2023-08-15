@@ -12,6 +12,7 @@ export const currentCity = cities[Math.floor(Math.random() * cities.length)].toU
 let intervalId;
 
 export function arrivalScene(controller) {
+    $('clock')
     const arrivalScene = new ScrollMagic.Scene({
         triggerElement: '#section1',
         offset: 200,

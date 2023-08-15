@@ -11,29 +11,36 @@ const cityTimezones = {
     'VANCOUVER': 'America/Vancouver',
     'MONTEVIDEO': 'America/Montevideo',
     'PHILADELPHIA': 'America/New_York',
-    'JOHANNESBURG': 'Africa/Johannesburg'
+    'JOHANNESBURG': 'Africa/Johannesburg',
+    'SOFIA': 'Europe/Sofia',
+    'TOKYO': 'Asia/Tokyo',
 };
 
 export function clocksScene(controller) {
-    const animations = [
-        { rotationX: -356, rotationY: 8, ease: Power2.easeInOut  },
-        { rotationX: 5, rotationY: 358, scale: 0.5, ease: Power3.easeOut },
-        { rotationX: -8, rotationY: 20, rotation:360, scale: 1.4, ease: Power4.easeIn },
+    const tweenVars = [
+        {y:'-100%',x:"-200%", rotationX:90, rotationY:120, ease:Power1.easeIn},
+        {transform: 'scale3d(0.6,0.6,0.6) rotateX(120deg) rotateY(30deg) rotateZ(360deg)' ,ease:Power3.easeOut},
+        {y:'-200%', rotationX:90, rotationY:120},
+        {transform: 'scale3d(1.5,1.5,1.5) rotateX(290deg) rotateY(230deg) rotateZ(360deg) translateX(-100px) translateY(-50px)' , ease:Power1.easeInOut},
+        {y:'-200%', rotationX:90, rotationY:-120, }
     ]
-    $('.clock').each(function(i){
-        const clockScene = new ScrollMagic.Scene({
-            triggerElement: '#section2',
-            offset:100,
-            duration: 500,
-        }).setTween(TweenMax.to(`.clock${i+1}`, 0.1,animations[i] ))
-            .addTo(controller)
-    }) 
-    
+    $('.clock').each(function(i) {
+        const clocksScene = new ScrollMagic.Scene({
+            triggerElement:this,
+            duration:'100%',
+            offset: -100
+        }).setTween(TweenMax.to(this, 0.1, tweenVars[i]))
+        .addIndicators({
+            colorStart:'black',
+            colorEnd:'black',
+            colorTrigger:'black',
+        }).addTo(controller)
+    })
 }
 
 // set clock times
-const clockCities = [currentCity, 'NEW YORK', 'LONDON']
-$('.carousel-item').each((i, el) => {
+const clockCities = [currentCity, 'NEW YORK', 'LONDON', 'SOFIA', 'TOKYO'];
+$('.clock-wrapper').each((i, el) => {
     const { hours, minutes } = getCityTime(cityTimezones[clockCities[i]]);
 
     $(el).find('#time').text(`${hours}:${minutes}`);
