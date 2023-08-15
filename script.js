@@ -37,8 +37,8 @@ $('.minutesArrow').css({
 
 const clockScene = new ScrollMagic.Scene({
   triggerElement: '#section2',
-  duration: "30%",
-}).setTween(TweenMax.to('.clock',0.1, {rotationX:720, ease: Power0.easeNone})).addIndicators({
+  duration: "200%",
+}).setTween(TweenMax.to('.clock',0.1, {rotationX:720,rotationY:-360, ease: Power0.easeNone})).addIndicators({
   colorStart: 'blue',
   colorEnd: 'red',
   colorStart: 'yellow',
