@@ -61,8 +61,8 @@
 }
 .clock .arrowCircle {
   position: absolute;
-  width: 5rem;
-  height: 5rem;
+  width: 1rem;
+  height: 1rem;
   left: 50%;
   top: 50%;
   border-radius: 50%;
@@ -186,4 +186,18 @@ html {
     color: rgb(180, 180, 48);
     transition: all 0.3s;
   }
+}
+.runway {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+  background-position: center;
+  background-image: url("./images/runway.jpg");
+}
+.runway .plane {
+  position: absolute;
+  bottom: 10%;
+  width: 6rem;
+  height: 3rem;
 }/*# sourceMappingURL=style.css.map */

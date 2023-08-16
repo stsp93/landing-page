@@ -20,7 +20,7 @@
       integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
       crossorigin="anonymous"
     ></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
@@ -68,7 +68,7 @@
               <a class="nav-link" aria-current="page" href="#section2">Time</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#section3">Weather</a>
+              <a class="nav-link" href="#section3">Runway</a>
             </li>
           </ul>
         </div>
@@ -194,9 +194,16 @@
     <!-- Section 3 -->
     <section id="section3">
       <div class="container">
-        <h2>Weather</h2>
-        <p>The weather outside looks mighty fine today</p>
-        <img class="img-fluid" src="./images/weather.jpg" alt="" />
+        <h2>Runway</h2>
+        <div class="runway">
+          <img class="plane" src="./images/vintage plane.png" alt="">
+        </div>
+        <div class="text-center mt-3">
+          <div class="btn-group">
+            <button id="flyBtn" class="btn btn-primary">Takeoff</button>
+            <button id="stopBtn" class="btn btn-primary">Land</button>
+          </div>
+        </div>
       </div>
     </section>
   </body>
